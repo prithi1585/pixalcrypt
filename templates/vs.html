@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pixel Crypto</title>
+    <link rel="icon" href="static/dp logo.png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='vs.css') }}">
+
+</head>
+<body>
+    <!-- Logo at the top -->
+    <div style="text-align: center; margin-top: 20px;">
+        <img src="{{ url_for('static', filename='dp logo.png') }}" alt="Pixel Crypto Logo" style="max-width: 200px;">
+        <p>Encrypt. Embed. Extract</p>
+    </div>
+
+
+    <h2>Encrypt Message into Image</h2>
+    <form action="/encrypt" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" required><br><br>
+        <textarea name="message" rows="4" cols="50" placeholder="Enter your secret message" required></textarea><br><br>
+       <input type="submit" value="Encrypt and Download Image" class="action-button">
+       <p id="hiddenMessage" class="message-output" style="display: none;"><strong>Hidden Message:</strong> <span id="decryptedText"></span></p>
+    </form>
+
+    <h2>Decrypt Message from Image</h2>
+    <form id="decrypt-form" enctype="multipart/form-data">
+        <input type="file" id="decrypt-image" name="image" required><br><br>
+        <button type="submit" class="action-button">Decrypt Message</button>
+    </form>
+
+    <p id="decrypted-message"></p>
+
+    <script>
+        document.getElementById('decrypt-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const formData = new FormData();
+            formData.append('image', document.getElementById('decrypt-image').files[0]);
+
+            const response = await fetch('/decrypt', {
+                method: 'POST',
+                body: formData
+            });
+            const data = await response.json();
+            document.getElementById('decrypted-message').innerText = "Hidden Message: " + data.message;
+        });
+    </script>
+</body>
+</html>

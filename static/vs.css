@@ -1,0 +1,112 @@
+/* General Body Style */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #d4fc79, #96e6a1, #a1c4fd, #c2e9fb, #e4c1f9, #fbc2eb);
+    background-size: 600% 600%;
+    animation: gradientBackground 15s ease infinite;
+    color: #333;
+}
+
+/* Gradient Animation */
+@keyframes gradientBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Landing Page Styles */
+.landing-body {
+    background: #046471;
+    color: #fff;
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.landing-container {
+    max-width: 500px;
+    padding: 20px;
+}
+
+.logo {
+    max-width: 150px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Button Styles (Encrypt + Decrypt) */
+.action-button {
+    background: linear-gradient(to right, #00cec9, #00b894);
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+    box-shadow: 0 8px 20px rgba(0, 206, 201, 0.2);
+    display: block;
+    margin-top: 10px;
+}
+
+.action-button:hover {
+    background: linear-gradient(to right, #00b894, #00cec9);
+    transform: scale(1.03);
+    box-shadow: 0 10px 25px rgba(0, 206, 201, 0.35);
+}
+
+/* Form Container */
+form {
+    background: white;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Input and Textarea Styles */
+input[type="file"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 15px 0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+/* Output Message */
+#decrypted-message {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #2d3436;
+}
+
+/* Section Headings */
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin: 40px 0 20px;
+    color: #2d3436;
+}
