@@ -1,3 +1,4 @@
 flask
 qrcode
 opencv-python
+pillow
