@@ -2,6 +2,7 @@ from flask import Flask, request, send_file, render_template, jsonify, url_for
 from PIL import Image
 from stegano import lsb
 import io
+import os
 
 app = Flask(__name__)
 
@@ -49,6 +50,7 @@ def decrypt():
 
     return jsonify({'message': hidden_message})
 
-# Run the app
+# Run the app with correct port binding for Render
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
